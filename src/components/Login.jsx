@@ -33,7 +33,7 @@ const Login = () => {
         <div className='bg-white h-screen flex flex-col justify-center'>
             <form className='max-w-[400px] w-full mx-auto bg-white p-4'>
                 <RouteLink to='/'><MdOutlineArrowBack size={25} /></RouteLink>
-                <h2 className='text-4xl font-bold text-center py-6'>SlideIt.</h2>
+                <h2 className='text-4xl font-bold text-center py-6'>SlideGen.</h2>
                 <div className='flex flex-col py-2'>
                     <label>Email</label>
                     <input className='border p-2' type="text" />

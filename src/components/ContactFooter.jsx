@@ -15,7 +15,7 @@ const ContactFooter = () => {
   return (
     <div name='contact' className='max-w mx-auto py-16 px-8 grid lg:grid-cols-4 gap-10 text-gray-300'>
       <div>
-        <h1 className='w-full text-3xl font-bold text-[#87CEEB]'>SlideIt</h1>
+        <h1 className='w-full text-3xl font-bold text-[#87CEEB]'>SlideGen</h1>
         <p className='py-4'>Any inquiry related to the Application or for further more information, you can feel free to contact us anytime. Do checkout the GitHub repository for the documentation.</p>
         <div className='flex justify-between md:w-[75%] my-4'>
             <FaFacebookSquare size={30} />
