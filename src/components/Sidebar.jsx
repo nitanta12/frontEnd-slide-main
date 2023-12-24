@@ -33,7 +33,7 @@ const Sidebar = () => {
     <div className=''>
         <div className='hidden md:flex'>
             <div className={`bg-black min-h-screen text-gray-100 px-4`}>
-                <h1 className={`text-3xl my-5 ml-2 font-bold text-[#00df9a]`}>SlideIt.</h1>
+                <h1 className={`text-3xl my-5 ml-2 font-bold text-[#00df9a]`}>SlideGen.</h1>
                 <div className='items-center'>
                     <p className={`font-bold text-sm mt-2 ml-2 justify-start text-zinc-400`}>Welcome, {user?.displayName}</p>
                 </div>
@@ -64,13 +64,13 @@ const Sidebar = () => {
             </div>
         </div>
         <div className='block fixed w-full flex justify-between items-center text-white bg-zinc-900 p-3 md:hidden'>
-            <h1 className='font-bold text-3xl flex text-[#00df9a]'>SlideIt</h1>
+            <h1 className='font-bold text-3xl flex text-[#00df9a]'>SlideGen</h1>
             <div onClick={handleNav} className="cursor-pointer">
                 {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20} />}
             </div>
         </div>
         <ul className={nav ? 'md:hidden text-white z-30 fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-300' : 'z-30 ease-in-out duration-300 fixed left-[-100%] top-0'}>
-                <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>SlideIt.</h1>
+                <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>SlideGen.</h1>
                 <li><p className={`text-xs font-bold justify-start p-4 text-zinc-400`}>Welcome, {user?.displayName}</p></li>
                 <li className='p-4'><button><Link to="/account" smooth={true} duration={500} onClick={()=> setNav(false)}>Dashboard</Link></button></li>
                 <li className='p-4'><button><Link to="/account" smooth={true} duration={500} onClick={()=> setNav(false)}>Saved</Link></button></li>

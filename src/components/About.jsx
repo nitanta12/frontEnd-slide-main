@@ -9,10 +9,10 @@ const About = () => {
         <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
           <img className='w-[500px] mx-auto my-4' src={Laptop} alt='/' />
           <div className='flex flex-col justify-center'>
-            <p className='text-[#87CEEB] font-bold '>SlideIt Dashboard</p>
+            <p className='text-[#87CEEB] font-bold '>SlideGen Dashboard</p>
             <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>Creating Slides is no more a tedious task</h1>
             <p className='py-2'>
-              Creating a good presentation slide can be a daunting task even for the most professional designers. But don't worry, SlideIt comes equipped with AI technology that will helps you generate stunning presentations easily. Whether it is a group assignment, sales pitch or projects, SlideIt has it all. The best part is, it's free!
+              Creating a good presentation slide can be a daunting task even for the most professional designers. But don't worry, SlideGen comes equipped with AI technology that will helps you generate stunning presentations easily. Whether it is a group assignment, sales pitch or projects, SlideGen has it all. The best part is, it's free!
             </p>
           </div>
         </div>
