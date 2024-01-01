@@ -116,22 +116,6 @@ const AccountDashboard = () => {
                                   </button>
                                 </Flex>
                               </Box>
-                              <Box>
-                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
-                                  Video Presentation
-                                </h2>
-                                <Flex>
-                                  <Text pt='5' fontSize='md'>
-                                    Your Presenatation Video is now Ready!
-                                  </Text>
-                                  <Spacer/>
-                                  <button className="border rounded md:px-4 px-1 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
-                                    <a href={generatedContent.video_link} target="_blank" rel="noopener noreferrer">
-                                        View Video
-                                    </a>
-                                  </button>
-                                </Flex>
-                              </Box>
                             </Stack>
                           </CardBody>
                         </Card>
@@ -199,22 +183,6 @@ const AccountDashboard = () => {
                                   <button className="border rounded px-8 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
                                     <a href={generatedTextContent.presentation_link} target="_blank" rel="noopener noreferrer">
                                         View Slide
-                                    </a>
-                                  </button>
-                                </Flex>
-                              </Box>
-                              <Box>
-                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
-                                  Video Presentation
-                                </h2>
-                                <Flex>
-                                  <Text pt='5' fontSize='md'>
-                                    Your Presenatation Video is now Ready!
-                                  </Text>
-                                  <Spacer/>
-                                  <button className="border rounded px-8 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
-                                    <a href={generatedTextContent.video_link} target="_blank" rel="noopener noreferrer">
-                                        View Video
                                     </a>
                                   </button>
                                 </Flex>
