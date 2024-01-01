@@ -33,7 +33,7 @@ const Sidebar = () => {
     <div className=''>
         <div className='hidden md:flex'>
             <div className={`bg-black min-h-screen text-gray-100 px-4`}>
-                <h1 className={`text-3xl my-5 ml-2 font-bold text-[#00df9a]`}>SlideGen.</h1>
+                <h1 className={`text-3xl my-5 ml-2 font-bold text-[#87CEEB]`}>SlideGen.</h1>
                 <div className='items-center'>
                     <p className={`font-bold text-sm mt-2 ml-2 justify-start text-zinc-400`}>Welcome, {user?.displayName}</p>
                 </div>
