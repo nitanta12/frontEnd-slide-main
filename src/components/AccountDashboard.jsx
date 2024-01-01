@@ -55,7 +55,7 @@ const AccountDashboard = () => {
           </div>
           <div name="Upload Area" className="">
             <div className="container" class="lg:w-[1180px] md:w-[620px] w-[460px]">
-              <Tabs variant='soft-rounded' colorScheme='green'>
+              <Tabs variant='soft-rounded' colorScheme='blue'>
                 <TabList className="py-4">
                   <Tab className="mr-8">File Upload</Tab>
                   <Tab className="mr-8">URL</Tab>
@@ -81,7 +81,7 @@ const AccountDashboard = () => {
                                 <Flex className="my-5">
                                 <Input onChange={(e) => setContent(e.target.value)} className="border mr-3 w-full" size='md' placeholder="Enter URL here" type="text" />
                                 <Spacer/>
-                                <button onClick={submitContent} className="border rounded px-8 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                                <button onClick={submitContent} className="border rounded px-8 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
                                   Generate
                                 </button>
                                 </Flex>
@@ -156,7 +156,7 @@ const AccountDashboard = () => {
                           value={textcontent}
                           onChange={(e) => settextContent(e.target.value)}
                         ></textarea>
-                        <button onClick={submittextContent} className="border rounded px-8 my-5 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                        <button onClick={submittextContent} className="border rounded px-8 my-5 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
                           Generate
                         </button>
                       </div>
