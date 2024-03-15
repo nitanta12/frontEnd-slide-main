@@ -99,25 +99,41 @@ const AccountDashboard = () => {
                           </CardHeader>
 
                           <CardBody>
-                            <Stack divider={<StackDivider />} spacing='5'>
-                              <Box>
-                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
-                                  Presentation Slide
-                                </h2>
-                                <Flex>
-                                  <Text pt='5' fontSize='md'>
-                                    Your Presenatation Slide is now Ready!
-                                  </Text>
-                                  <Spacer/>
-                                  <button className="border rounded md:px-5 px-2 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
-                                    <a href={generatedContent.presentation_link} target="_blank" rel="noopener noreferrer">
-                                        View Slide
-                                    </a>
-                                  </button>
-                                </Flex>
-                              </Box>
-                            </Stack>
-                          </CardBody>
+              <Stack divider={<StackDivider />} spacing='5'>
+                <Box>
+                  <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                    Presentation Slide
+                  </h2>
+                  <Flex>
+                    <Text pt='5' fontSize='md'>
+                      Your Presenatation Slide is now Ready!
+                    </Text>
+                    <Spacer/>
+                    <button className="border rounded md:px-5 px-2 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                      <a href={generatedContent.presentation_link} target="_blank" rel="noopener noreferrer">
+                          View Slide
+                      </a>
+                    </button>
+                  </Flex>
+                </Box>
+                <Box>
+                  <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                  Powerpoint Presentation
+                  </h2>
+                  <Flex>
+                    <Text pt='5' fontSize='md'>
+                      Your Presenatation Video is now Ready!
+                    </Text>
+                    <Spacer/>
+                    <button className="border rounded md:px-4 px-1 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                      <a href={generatedContent.pptx_link} target="_blank" rel="noopener noreferrer">
+                          View Pptx
+                      </a>
+                    </button>
+                  </Flex>
+                </Box>
+              </Stack>
+            </CardBody>
                         </Card>
                       </div>
                     )}
