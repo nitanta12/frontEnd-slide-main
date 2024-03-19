@@ -184,7 +184,7 @@ const FileUpload = (props) => {
                       Your Presenatation Slide is now Ready!
                     </Text>
                     <Spacer/>
-                    <button className="border rounded md:px-5 px-2 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                    <button className="border rounded md:px-5 px-2 py-2 bg-bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
                       <a href={generatedContent.presentation_link} target="_blank" rel="noopener noreferrer">
                           View Slide
                       </a>
@@ -193,16 +193,16 @@ const FileUpload = (props) => {
                 </Box>
                 <Box>
                   <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
-                   Powerpoint Slide
+                    PowerPoint Presentation
                   </h2>
                   <Flex>
                     <Text pt='5' fontSize='md'>
-                      Your Presenatation Video is now Ready!
+                      Your Presenatation Slides is now Ready!
                     </Text>
                     <Spacer/>
-                    <button className="border rounded md:px-4 px-1 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                    <button className="border rounded md:px-4 px-1 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
                       <a href={generatedContent.pptx_link} target="_blank" rel="noopener noreferrer">
-                          View pptx
+                          View Slides
                       </a>
                     </button>
                   </Flex>

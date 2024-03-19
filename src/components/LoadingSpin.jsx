@@ -9,7 +9,7 @@ const LoadingSpin = () => {
     const facts = [
       'धैर्य चाहिन्छ',
       'It might take several minutes',
-      'Please Wait (धैर्य तितो हुन्छ तर यसको फल मीठो हुन्छ)'
+      'Please Wait'
    ];
 
   const getRandomFact = () => {

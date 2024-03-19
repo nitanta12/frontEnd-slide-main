@@ -43,3 +43,13 @@ export const postUpload = async (content) => {
     console.log(err);
   }
 };
+
+export const getDataFromFile = async () => {
+  try {
+    const res = await api.get("/get-response");
+    console.log(res.data);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

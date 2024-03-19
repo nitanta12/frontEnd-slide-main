@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
-import { useState } from "react";
 import FileUpload from "./contentupload/fileupload";
 import LoadingSpin from "./LoadingSpin";
 import { postText, postUrl } from "../api/api";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Flex, Spacer, Input, Card, Stack, CardBody, Text, CardHeader, StackDivider, Box } from '@chakra-ui/react'
+import { Link, useNavigate } from "react-router-dom";
 
 const AccountDashboard = () => {
   const [loading, setLoading] = useState(false);
-  
   const [fileContent, setFileContent] = useState(null);
+  const [content, setContent] = useState('');
+  const [generatedContent, setGeneratedContent] = useState('');
+  const [textcontent, settextContent] = useState('');
+  const [generatedTextContent, setGeneratedTextContent] = useState('');
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Get preserved state from sessionStorage when component mounts
+    const preservedState = JSON.parse(sessionStorage.getItem('accountState'));
+    if (preservedState) {
+      setLoading(preservedState.loading);
+      setGeneratedContent(preservedState.generatedContent);
+      setGeneratedTextContent(preservedState.generatedTextContent);
+    }
+  }, []);
 
   function handleFileChange(fileContent) {
     console.log("inside handle file change")
@@ -17,10 +32,7 @@ const AccountDashboard = () => {
     console.log("file content updaded with value::");
     console.log(fileContent);
   }
-  
-  const [content, setContent] = useState('');
-  const [generatedContent, setGeneratedContent] = useState('');
-  
+
   const submitContent = async (e) => {
     e.preventDefault();
     console.log(content);
@@ -28,11 +40,12 @@ const AccountDashboard = () => {
     const response = await postUrl(content);
     setGeneratedContent(response);
     setLoading(false);
+    // Store state in sessionStorage
+    sessionStorage.setItem('accountState', JSON.stringify({ loading, generatedContent }));
+    // Redirect to the result page
+    navigate('/result');
   };
 
-  const [textcontent, settextContent] = useState('');
-  const [generatedTextContent, setGeneratedTextContent] = useState('');
-  
   const submittextContent = async (e) => {
     e.preventDefault();
     console.log(textcontent);
@@ -40,8 +53,11 @@ const AccountDashboard = () => {
     const response = await postText(textcontent);
     setGeneratedTextContent(response);
     setLoading(false);
+    // Store state in sessionStorage
+    sessionStorage.setItem('accountState', JSON.stringify({ loading, generatedTextContent }));
+    // Redirect to the result page
+    navigate('/result');
   }
-
 
   return (
     <div>
@@ -76,16 +92,16 @@ const AccountDashboard = () => {
                         {/* url Upload area */}
                         <form action="submit">
                           <div className="form-group">
-                              <div>
-                                <label className="py-2">URL</label>
-                                <Flex className="my-5">
+                            <div>
+                              <label className="py-2">URL</label>
+                              <Flex className="my-5">
                                 <Input onChange={(e) => setContent(e.target.value)} className="border mr-3 w-full" size='md' placeholder="Enter URL here" type="text" />
-                                <Spacer/>
+                                <Spacer />
                                 <button onClick={submitContent} className="border rounded px-8 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
                                   Generate
                                 </button>
-                                </Flex>
-                              </div>
+                              </Flex>
+                            </div>
                           </div>
                         </form>
                       </p>
@@ -99,41 +115,55 @@ const AccountDashboard = () => {
                           </CardHeader>
 
                           <CardBody>
-              <Stack divider={<StackDivider />} spacing='5'>
-                <Box>
-                  <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
-                    Presentation Slide
-                  </h2>
-                  <Flex>
-                    <Text pt='5' fontSize='md'>
-                      Your Presenatation Slide is now Ready!
-                    </Text>
-                    <Spacer/>
-                    <button className="border rounded md:px-5 px-2 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
-                      <a href={generatedContent.presentation_link} target="_blank" rel="noopener noreferrer">
-                          View Slide
-                      </a>
-                    </button>
-                  </Flex>
-                </Box>
-                <Box>
-                  <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
-                  Powerpoint Presentation
-                  </h2>
-                  <Flex>
-                    <Text pt='5' fontSize='md'>
-                      Your Presenatation Video is now Ready!
-                    </Text>
-                    <Spacer/>
-                    <button className="border rounded md:px-4 px-1 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
-                      <a href={generatedContent.pptx_link} target="_blank" rel="noopener noreferrer">
-                          View Pptx
-                      </a>
-                    </button>
-                  </Flex>
-                </Box>
-              </Stack>
-            </CardBody>
+                            <Stack divider={<StackDivider />} spacing='5'>
+                              <Box>
+                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                                  Presentation Slide
+                                </h2>
+                                <Flex>
+                                  <Text pt='5' fontSize='md'>
+                                    Your Presenatation Slide is now Ready!
+                                  </Text>
+                                  <Spacer />
+                                  <button className="border rounded md:px-5 px-2 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
+                                    <a href={generatedContent.presentation_link} target="_blank" rel="noopener noreferrer">
+                                      View Slide
+                                    </a>
+                                  </button>
+                                </Flex>
+                              </Box>
+                              <Box>
+                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                                  Powerpoint Presentation
+                                </h2>
+                                <Flex>
+                                  <Text pt='5' fontSize='md'>
+                                    Your Presenatation Slides is now Ready!
+                                  </Text>
+                                  <Spacer />
+                                  <button className="border rounded md:px-4 px-1 py-2 bg-[#87CEEB]  hover:bg-[white] text-black font-semibold">
+                                    <a href={generatedContent.pptx_link} target="_blank" rel="noopener noreferrer">
+                                      View Pptx
+                                    </a>
+                                  </button>
+                                </Flex>
+                              </Box>
+                              <Box>
+                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                                 Results
+                                </h2>
+                                <Flex>
+                                  <Text pt='5' fontSize='md'>
+                                    See the result
+                                  </Text>
+                                  <Spacer />
+                                  <button className="border rounded md:px-4 px-1 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
+                            <a target="_blank" > <Link to="/result">Result</Link></a>
+                          </button>
+                                </Flex>
+                              </Box>
+                            </Stack>
+                          </CardBody>
                         </Card>
                       </div>
                     )}
@@ -195,22 +225,55 @@ const AccountDashboard = () => {
                                   <Text pt='5' fontSize='md'>
                                     Your Presenatation Slide is now Ready!
                                   </Text>
-                                  <Spacer/>
-                                  <button className="border rounded px-8 py-2 bg-[#00df9a] hover:bg-[#00df98bc] text-black font-semibold">
+                                  <Spacer />
+                                  <button className="border rounded px-8 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
                                     <a href={generatedTextContent.presentation_link} target="_blank" rel="noopener noreferrer">
-                                        View Slide
+                                      View Slide
                                     </a>
                                   </button>
                                 </Flex>
                               </Box>
+                              <Box>
+                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                                  Powerpoint Slide
+                                </h2>
+                                <Flex>
+                                  <Text pt='5' fontSize='md'>
+                                    Your Powerpoint slides is now Ready!
+                                  </Text>
+                                  <Spacer />
+                                  <button className="border rounded md:px-4 px-1 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
+                                    <a href={generatedTextContent.pptx_link} target="_blank" rel="noopener noreferrer">
+                                      View pptx
+                                    </a>
+                                  </button>
+                                </Flex>
+                              </Box>
+                              <Box>
+                                <h2 className="font-bold text-zinc-700 lg:text-lg md:text-lg text-md">
+                                 Results
+                                </h2>
+                                <Flex>
+                                  <Text pt='5' fontSize='md'>
+                                    See the result
+                                  </Text>
+                                  <Spacer />
+                                  <button className="border rounded md:px-4 px-1 py-2 bg-[#87CEEB] hover:bg-[white] text-black font-semibold">
+                            <a target="_blank" > <Link to="/result">Result</Link></a>
+                          </button>
+                                </Flex>
+                              </Box>
                             </Stack>
                           </CardBody>
+                        
                         </Card>
                       </div>
                     )}
                   </TabPanel>
                 </TabPanels>
+               
               </Tabs>
+            
             </div>
           </div>
         </div>
